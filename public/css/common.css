@@ -1,0 +1,317 @@
+/* =================================================
+   TTPSHOP - CSS Dùng Chung (common.css)
+   Tập trung toàn bộ CSS lặp lại của frontend
+   ================================================= */
+
+/* --- Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .35s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background: #f5f5f3;
+    color: #111827;
+    overflow-x: hidden;
+}
+
+/* --- Typography --- */
+.lux-title {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* --- Utility --- */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- Navbar --- */
+.nav-link {
+    position: relative;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 1px;
+    background: black;
+    transition: .3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- Product Card --- */
+.product-card {
+    background: white;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #ececec;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+}
+
+.product-btn {
+    border: 1px solid #d1d5db;
+    height: 48px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.product-btn:hover {
+    background: #111827;
+    color: white;
+    border-color: #111827;
+}
+
+.cart-btn {
+    width: 48px;
+    height: 48px;
+    background: #0f172a;
+    color: white;
+}
+
+.cart-btn:hover {
+    background: #b08954;
+}
+
+.badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: #111827;
+    color: white;
+    font-size: 10px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+/* --- Section Titles --- */
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 60px;
+    }
+}
+
+.section-desc {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 50px;
+    font-size: 15px;
+}
+
+/* --- Footer --- */
+.footer-title {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+
+.footer-link {
+    color: #94a3b8;
+}
+
+.footer-link:hover {
+    color: white;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 999px;
+}
+
+/* --- Sidebar (categories) --- */
+.sidebar {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.sidebar-title {
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+    text-transform: uppercase;
+}
+
+.sidebar-title:hover {
+    color: #b08954;
+}
+
+.sidebar-sub {
+    display: none;
+    padding: 10px 0 10px 15px;
+}
+
+.sidebar-sub a {
+    display: block;
+    font-size: 14px;
+    padding: 8px 0;
+    color: #4b5563;
+}
+
+.sidebar-sub a:hover {
+    color: #000;
+    font-weight: 600;
+    padding-left: 5px;
+}
+
+/* --- Hero Banner --- */
+.hero-btn {
+    padding: 15px 36px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-btn-dark {
+    background: #0f172a;
+    color: white;
+}
+
+.hero-btn-dark:hover {
+    background: #1e293b;
+}
+
+.hero-btn-light {
+    border: 1px solid rgba(255, 255, 255, .4);
+    color: white;
+}
+
+.hero-btn-light:hover {
+    background: white;
+    color: black;
+}
+
+.carousel-item {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.hero-overlay {
+    background: linear-gradient(90deg, rgba(4, 12, 33, .88) 0%, rgba(4, 12, 33, .7) 40%, rgba(4, 12, 33, .15) 100%);
+}
+
+.pagination-dot {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.pagination-dot.active {
+    background-color: white;
+    transform: scale(1.25);
+}
+
+/* --- Autocomplete (search.php) --- */
+#searchSuggestions {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid rgba(209, 213, 219, 1);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    z-index: 200;
+    overflow: hidden;
+}
+
+#searchSuggestions a {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid #f1f5f9;
+    text-decoration: none;
+}
+
+#searchSuggestions a:last-child {
+    border-bottom: none;
+}
+
+#searchSuggestions img {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #f8fafc;
+}
+
+#searchSuggestions .title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 240px;
+}
+
+#searchSuggestions .price {
+    font-size: 12px;
+    font-weight: 800;
+    color: #dc2626;
+}
+
+#searchSuggestions .empty {
+    padding: 14px 12px;
+    color: #6b7280;
+    font-size: 13px;
+}
